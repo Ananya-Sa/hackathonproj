@@ -1,11 +1,11 @@
-import React from "react";
+import CollegeHomePage from "@/components/CollegeHomePage";
 
-function Home() {
+function page() {
   return (
-    <div className="text-7xl text-black-400 size= sm: p-5">
-      This is the home page
+    <div>
+      <CollegeHomePage />
     </div>
   );
 }
 
-export default Home;
+export default page;
