@@ -38,7 +38,7 @@ function LoginAuthModal() {
     });
     if (!errors) {
       Cookies.set("token", token, { expires: 1 });
-      console.log("Success");
+      router.push("/");
     }
   }
 
@@ -56,7 +56,8 @@ function LoginAuthModal() {
           name="email"
           id="email"
           onChange={handleChangeEmail}
-          className="w-full  border-black rounded-md border px-3 py-1 text-sm outline-black outline-offset-4 mb-3"
+          placeholder="example@email.com"
+          className="w-full  border-black items-center bg-slate-100 rounded-md border px-2.5 py-1.5 text-sm outline-black outline-offset-3 mb-3"
         />
         <label className="block mb-1 font-semibold">Password:</label>
         <input
@@ -64,7 +65,8 @@ function LoginAuthModal() {
           name="password"
           onChange={handleChangePassword}
           id="password"
-          className="w-full border-black rounded-md border px-3 py-1 text-sm outline-black outline-offset-4 mb-3"
+          placeholder="password"
+          className="w-full border-black bg-slate-100 rounded-md border px-2.5 py-1.5 text-sm outline-black outline-offset-3 mb-3"
         />
         <Button className="w-full">Login</Button>
       </form>
