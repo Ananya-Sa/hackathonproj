@@ -13,6 +13,7 @@ function LoginAuthModal() {
 
   const [email, setEmail] = useState<string>();
   const [password, setPassword] = useState<string>();
+  const [loading, setLoading] = useState(false);
 
   const { isOpen, onClose } = useAuthModal();
 
@@ -32,14 +33,21 @@ function LoginAuthModal() {
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+
+    setLoading(true);
+
     const { token, errors } = await useLogin({
       email: email ?? "",
       password: password ?? "",
     });
+
     if (!errors) {
       Cookies.set("token", token, { expires: 1 });
       router.push("/");
+      setLoading(false);
     }
+
+    setLoading(false);
   }
 
   return (
@@ -57,6 +65,7 @@ function LoginAuthModal() {
           id="email"
           onChange={handleChangeEmail}
           placeholder="example@email.com"
+          disabled={loading}
           className="w-full  border-black items-center bg-slate-100 rounded-md border px-2.5 py-1.5 text-sm outline-black outline-offset-3 mb-3"
         />
         <label className="block mb-1 font-semibold">Password:</label>
@@ -66,9 +75,12 @@ function LoginAuthModal() {
           onChange={handleChangePassword}
           id="password"
           placeholder="password"
+          disabled={loading}
           className="w-full border-black bg-slate-100 rounded-md border px-2.5 py-1.5 text-sm outline-black outline-offset-3 mb-3"
         />
-        <Button className="w-full">Login</Button>
+        <Button className="w-full" disabled={loading}>
+          Login
+        </Button>
       </form>
     </Modal>
   );
