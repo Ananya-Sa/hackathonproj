@@ -39,7 +39,7 @@ function AuthModal() {
           id="password"
           className="w-full border-black rounded-md border px-3 py-1 text-sm outline-black outline-offset-4 mb-3"
         />
-        <Button>Login</Button>
+        <Button className="w-full">Login</Button>
       </form>
     </Modal>
   );
