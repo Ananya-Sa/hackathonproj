@@ -3,15 +3,10 @@
 import Modal from "./Modal";
 import { useRouter } from "next/navigation";
 import useAuthModal from "@/hooks/useAuthModal";
-import {
-  ChangeEvent,
-  ChangeEventHandler,
-  FormEvent,
-  useEffect,
-  useState,
-} from "react";
-import { Form } from "../ui/form";
+import { ChangeEvent, FormEvent, useState } from "react";
 import { Button } from "../ui/button";
+import { useLogin } from "@/hooks/auth/useLogin";
+import Cookies from "js-cookie";
 
 function LoginAuthModal() {
   const router = useRouter();
@@ -37,20 +32,14 @@ function LoginAuthModal() {
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const response = await fetch(
-      "http://localhost:5230/api/authentication/login",
-      {
-        method: "POST",
-        body: JSON.stringify({
-          email: email,
-          password: password,
-        }),
-      }
-    );
-
-    const data = await response.json();
-
-    console.log(data);
+    const { token, errors } = await useLogin({
+      email: email ?? "",
+      password: password ?? "",
+    });
+    if (!errors) {
+      Cookies.set("token", token, { expires: 1 });
+      console.log("Success");
+    }
   }
 
   return (

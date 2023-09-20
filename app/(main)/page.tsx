@@ -1,6 +1,6 @@
 import CollegeHomePage from "@/components/CollegeHomePage";
 
-async function page() {
+function page() {
   return (
     <div>
       <CollegeHomePage />
