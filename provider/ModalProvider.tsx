@@ -1,6 +1,6 @@
 "use client";
 
-import AuthModal from "@/components/shared/AuthModel";
+import LoginAuthModal from "@/components/shared/AuthModel";
 import Modal from "@/components/shared/Modal";
 import { useEffect, useState } from "react";
 
@@ -17,7 +17,7 @@ function ModalProvider() {
 
   return (
     <>
-      <AuthModal />
+      <LoginAuthModal />
     </>
   );
 }

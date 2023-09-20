@@ -14,9 +14,15 @@ function page() {
           Welcome to AICTE Meeting Platform <br />
           Schedule you meeting share important files
         </p>
-        <div className="mt-20 space-x-5 justify-center flex">
-          <Button onClick={authModal.onOpen}>Login as AICTE Admin</Button>
-          <Button onClick={authModal.onOpen}>Login as College Facility</Button>
+        <div className="mt-20 space-x-5 justify-center flex ">
+          <div className="flex flex-col">
+            <Button onClick={authModal.onOpen}>Login as AICTE Admin</Button>
+          </div>
+          <div className="flex flex-col">
+            <Button onClick={authModal.onOpen}>
+              Login as College Facility
+            </Button>
+          </div>
         </div>
       </div>
     </header>
