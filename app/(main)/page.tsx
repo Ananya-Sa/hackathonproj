@@ -1,9 +1,10 @@
-import CollegeHomePage from "@/components/CollegeHomePage";
+import { MenubarDemo } from "@/components/CollegeHomePage";
+import SideBar from "@/components/sidebar";
 
 function page() {
   return (
     <div>
-      <CollegeHomePage />
+      <SideBar></SideBar>
     </div>
   );
 }
