@@ -55,11 +55,6 @@ function page() {
         <div onClick={() => {}} className="absolute inset-x-[600px] bottom-20">
           <Icon size={28} />
         </div>
-        <div>
-          <div className="h-screen grid bg-gradient-to-r from-sky-600 to-indigo-600">
-            <Dropdown />
-          </div>
-        </div>
       </div>
     </div>
   );
