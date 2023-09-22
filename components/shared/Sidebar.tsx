@@ -26,9 +26,11 @@ const Sidebar = ({ user }: { user: any }) => {
       <div className="p-4">
         <Menubar className="w-full">
           <MenubarMenu>
-            <MenubarTrigger className=" w-full">
-              <BiSolidUserCircle size={25} className="mr-4" />
-              User
+            <MenubarTrigger className="w-full flex justify-between">
+              <div className="flex items-center">
+                <BiSolidUserCircle size={25} className="mr-4" />
+                User
+              </div>
               <IoMdArrowDropdown size={18} className="ml-8" />
             </MenubarTrigger>
             <MenubarContent>
@@ -48,19 +50,6 @@ const Sidebar = ({ user }: { user: any }) => {
               <MenubarSeparator />
               <MenubarItem>
                 <VscSignOut size={16} className="mr-3" /> Sign Out
-              </MenubarItem>
-              <MenubarSeparator />
-              <MenubarSub>
-                <MenubarSubTrigger>Share</MenubarSubTrigger>
-                <MenubarSubContent>
-                  <MenubarItem>Email link</MenubarItem>
-                  <MenubarItem>Messages</MenubarItem>
-                  <MenubarItem>Notes</MenubarItem>
-                </MenubarSubContent>
-              </MenubarSub>
-              <MenubarSeparator />
-              <MenubarItem>
-                Print... <MenubarShortcut>⌘P</MenubarShortcut>
               </MenubarItem>
             </MenubarContent>
           </MenubarMenu>
