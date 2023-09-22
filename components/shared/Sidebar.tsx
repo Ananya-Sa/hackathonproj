@@ -25,7 +25,7 @@ const Sidebar = ({ user }: { user: any }) => {
             <MenubarTrigger className="w-full flex justify-between">
               <div className="flex items-center">
                 <BiSolidUserCircle size={25} className="mr-4" />
-                User
+                {user.teacherName}
               </div>
               <IoMdArrowDropdown size={18} className="ml-8" />
             </MenubarTrigger>
