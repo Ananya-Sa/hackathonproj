@@ -1,10 +1,58 @@
-import { MenubarDemo } from "@/components/CollegeHomePage";
-import SideBar from "@/components/sidebar";
+"use client";
+
+import Sidebar from "@/components/shared/Sidebar";
+import useUser from "@/hooks/auth/useUser";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { BsFillChatRightDotsFill } from "react-icons/bs";
+import { HiPhoneMissedCall } from "react-icons/hi";
+import { BiPhoneCall } from "react-icons/bi";
+import { BsFillMicFill } from "react-icons/bs";
+import { BsFillMicMuteFill } from "react-icons/bs";
 
 function page() {
+  const [loaded, setLoaded] = useState(false);
+  const [user, setUser] = useState<any>(null);
+  const router = useRouter();
+  const Icon = isOpen() ? BsFillMicFill : BsFillMicMuteFill;
+
+  function isOpen() {
+    return false;
+  }
+  useEffect(() => {
+    useUser().then((data) => {
+      setUser(data);
+
+      if (data.user == null) {
+        console.log("Done");
+        return router.replace("/getting-started");
+      }
+      setLoaded(true);
+    });
+  }, []);
+
+  useEffect(() => {}, []);
+
   return (
-    <div>
-      <SideBar></SideBar>
+    <div className="flex">
+      <div className="">
+        <Sidebar user={user} />
+      </div>
+      <div className="relative">
+        <div className="absolute inset-x-[300px] bottom-20">
+          <BsFillChatRightDotsFill size={28} />
+        </div>
+        <div className="absolute inset-x-[400px] bottom-20">
+          <HiPhoneMissedCall size={28} />
+        </div>
+        <div className="absolute inset-x-[500px] bottom-20">
+          <BiPhoneCall size={28} />
+        </div>
+
+        <div onClick={() => {}} className="absolute inset-x-[600px] bottom-20">
+          <Icon size={28} />
+        </div>
+      </div>
     </div>
   );
 }
