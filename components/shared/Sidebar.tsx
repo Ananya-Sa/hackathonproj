@@ -7,10 +7,6 @@ import {
   MenubarItem,
   MenubarMenu,
   MenubarSeparator,
-  MenubarShortcut,
-  MenubarSub,
-  MenubarSubContent,
-  MenubarSubTrigger,
   MenubarTrigger,
 } from "../ui/menubar";
 import { AiOutlineSchedule, AiOutlineTeam } from "react-icons/ai";
