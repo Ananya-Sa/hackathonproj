@@ -64,8 +64,6 @@ const Sidebar = ({ user }: { user: any }) => {
           <li className="mb-4 flex items-center">
             <LuSettings size={16} className="mr-3" /> Settings
           </li>
-
-          {/* Add more sidebar links */}
         </ul>
       </div>
     </div>
