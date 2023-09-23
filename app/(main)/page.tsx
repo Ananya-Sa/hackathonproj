@@ -1,6 +1,7 @@
 import Sidebar from "@/components/shared/Sidebar";
 import { redirect } from "next/navigation";
 import { getUser } from "@/server/getUser";
+import Navbar from "@/components/shared/Navbar";
 
 async function page() {
   const { user } = await getUser();
@@ -11,9 +12,10 @@ async function page() {
 
   return (
     <div className="flex">
-      <div className="">
+      <div>
         <Sidebar user={user} />
       </div>
+      <Navbar />
     </div>
   );
 }
